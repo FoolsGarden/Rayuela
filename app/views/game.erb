@@ -1,0 +1,37 @@
+<header>
+  <img src="img/codea-logo.png" id="logo">
+</header>
+
+<h1 id="main-title">¡RAYUELA!</h1>
+    <button class="start" id="start_btn">Jugar</button><br><br>
+    <div class="countdown">3</div><h2></h2>
+    <table class="table">
+      <tr id="Player1">
+        <td id="player1"><strong>Jugador 1</strong></td>
+        <td class="active" id="0" ></td>
+        <% 90.times do |index| %>
+        <td id="<%= index + 1%>"></td>
+        <% end %>
+        <td id="91" class="aim"></td>
+        <td id="92"></td>
+        <td id="93"></td>
+        <td id="94"></td>
+        <td id="95"></td>
+        <td id="96"></td>
+      </tr>
+
+      <tr id="Player2">
+        <td id="player2"><strong>Jugador 2</strong></td>
+        <td class="active" id="0" ></td>
+        <% 90.times do |index|%>
+        <td id="<%= index + 1 %>"></td>
+        <% end %>
+        <td id="91" class="aim"></td>
+        <td id="92"></td>
+        <td id="93"></td>
+        <td id="94"></td>
+        <td id="95"></td>
+        <td id="96"></td>
+      </tr>
+<!--       <button class="restart" id="restart_btn">Reiniciar</button> -->
+</table>

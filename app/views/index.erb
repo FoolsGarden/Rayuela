@@ -1,0 +1,18 @@
+<% if @user_1 %>
+<% @user_1.errors.full_messages.each do |msg|%>
+<p>Jugador 1: <%= msg %></p>
+<% end %>
+<% end %>
+<% if @user_2 %>
+<% @user_2.errors.full_messages.each do |msg|%>
+<p>Jugador 2: <%= msg %></p>
+<% end %>
+<% end %>
+<h1>Bienvenido a Rayuela</h1>
+    <form action="/game" method="post">
+    <input type="text" name="user_1" placeholder="Jugador 1"><br>
+    <input type="text" name="user_2" placeholder="Jugador 2"><br>
+    <input type="submit">
+  </form>
+
+  <a href="/users">Pasa al juego</a>
