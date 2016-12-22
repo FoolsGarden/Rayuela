@@ -65,16 +65,16 @@ button:hover {
    
 }
 
-h2 {
-  text-align: right;
-}
 div .countdown {
-  font-size: 40px;
-  margin-bottom: 20px;
+  font-size: 20px;
+  text-align: left;
+  
 }
 
-/*.table td#player1 {
-  padding-right: 50px;
-}*/
+div .message {
+  font-size: 20px;
+  text-align: right;
+  padding-bottom: 10px;
+}
 
 

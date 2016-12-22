@@ -1,28 +1,37 @@
 $(document).ready(function() {
-  value1 = false;
-  value2 = false;
-  diference1 = 200;
-  diference2 = 200;
   
   $("button").click(function() {
+    diference1 = 200;
+    diference2 = 200;
+    
+    value1 = false;
+    value2 = false;
 
+    reset("Player1", ".message", 3);
+    reset("Player2", ".message", 3);
+    
     var ourCountdown = setInterval(function(){
       var counter = parseInt($('.countdown').html());
       if (counter !== 0) {
         $('.countdown').html(counter - 1);
       }else{
-        clearInterval(ourCountdown)
-        $('.countdown').text("¡Empieza!")
+       clearInterval(ourCountdown)
+       $("button").text("Reiniciar");
+       $('.countdown').text("¡Empieza!");
        var player1 = moveCoin("Player1");
-       $(document).on('keydown', stop);
+       $("button").on('keydown', stop);
        // console.log(player1);
        var player2 = moveCoin("Player2");
        // console.log(player2);
-       $(document).on('keydown', stop); 
+       $("button").on('keydown', stop);
+       // $("button").click(function() {
+       //  location.reload(true);
+       // });
+
       }
     }, 500);
-    
   });
+
 });
 
 
@@ -39,7 +48,7 @@ var stop = function(event){
 
 var moveCoin = function(player){
   counter = 0
-  var currentPlayer = $("#" + player + "> .active")
+  var currentPlayer = $("#" + player + "> .active");
   var nextPlayer = currentPlayer.next();
   
   index = currentPlayer.attr("id");
@@ -65,7 +74,6 @@ var moveCoin = function(player){
 
 
 var winner = function(index, player=""){
-  console.log(player);
   counter += 1;
   if (player == "player1" && index < 90 ) {
     diference1 = 90 - index;   
@@ -79,14 +87,22 @@ var winner = function(index, player=""){
   // console.log(diference2);
 
   if (diference1 < diference2){
-    $("h2").text(message);
+    $(".message").text(message);
   }else if(diference1 > diference2){
-    $("h2").text(message_2);
+    $(".message").text(message_2);
   }else if(diference1 == diference2 && diference2 != 200 && diference1 != 200){
-    $("h2").text("Esto fue un empate!");
+    $(".message").text("Esto fue un empate!");
   }else if(diference2 == 200 && diference1 == 200){
-    $("h2").text("No hay ganador");
+    $(".message").text("No hay ganador");
   }
+}
+
+var reset = function(player, slector, time) {
+  currentPlayer1 = $("#" + player + "> .active");
+  currentPlayer1.removeClass("active");
+  $("#" + player + "> #0").addClass("active");
+  $(slector).empty();
+  $('.countdown').html(time);
 }
 
 

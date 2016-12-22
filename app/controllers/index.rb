@@ -4,10 +4,11 @@ get '/' do
 end
 
 post '/game' do
+
   @user_1 = Player.create(name: params[:user_1])
   @user_2 = Player.create(name: params[:user_2])
   
-   if @user_1.save && @user_2
+   if @user_1.save && @user_2.save
     erb :game
   else 
     erb :index
